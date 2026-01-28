@@ -12,6 +12,7 @@ void testcase(unsigned long long *iterations, unsigned long nr)
 	while (1) {
 		void *addr = malloc(SIZE);
 		assert(addr != NULL);
+		__asm __volatile("" : : "r" (addr) : "memory");
 		free(addr);
 
 		(*iterations)++;
